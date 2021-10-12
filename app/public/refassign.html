@@ -35,20 +35,69 @@
             <a class="nav-link" href="refassign.html">Assign Referees</a>
           </li> 
           <li class="nav-item">
+            <a class="nav-link" href="matches.html">Matches</a>
+          </li>             
+          <li class="nav-item">
             <a class="nav-link" href="login.html">Assigner Login</a>
-          </li>       
+          </li>      
         </ul>
       </div>
     </div>
   </nav>
 
 
-
 <!-- https://getbootstrap.com/docs/5.0/components/alerts/ -->
   <main class="container">
 <div>
-<h3>Header</h3>
-<p>Text</p>
+<h3>Referee List</h3>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Age</th>
+        <th scope="col">Grade</th>
+        <th scope="col">Private Rating (0-100)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>27</td>
+        <td>1</td>
+        <td>45</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Bob</td>
+        <td>Smith</td>
+        <td>35</td>
+        <td>3</td>
+        <td>75</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>Thompson</td>
+        <td>42</td>
+        <td>2</td>
+        <td>95</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Assign a Referee</h3>
+
+  <form>
+    <div class="mb-3">
+      <label for="inputRefNumber" class="form-label">Referee Number</label>
+      <input type="number" class="form-control" id="inputRefNumber">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 </div>
   
   </main>
