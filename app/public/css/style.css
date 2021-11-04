@@ -1,16 +1,25 @@
-header {
-    background: #DC143C;
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-body {
-    background: #DC143C;
-    color:black;
-}
+header {
+    background-color: rgb(100, 12, 0);
+    color: white;
+    padding: 10px;
+  }
+
 
 footer {
-    color:black;
-}
+    background-color: rgb(100, 12, 0);
+    text-align: center;
+    padding: 10px;
+    color: white;
+  }
 
 h3 {
     color:black;
 }
+
