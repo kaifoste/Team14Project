@@ -55,41 +55,39 @@
   <div class="col-lg-12 col-md-12 col-sm-12">
     <h3>Assign a Referee</h3>
     <!-- fix form inputs-->
-    <form v-on:submit.prevent="postBook">
+    <form v-on:submit.prevent="postAssignment">
   <div class="mb-3">
-    <label for="yearpublished" class="form-label">Referee:</label>
+    <label for="refereeId" class="form-label">Referee:</label>
     <select class="form-select" aria-label="Default select example">
-      <!-- loop -->
+      <option v-for="referee in referees">
+        {{ referee.refereeId }}
+      </option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="matchId" class="form-label">Match:</label>
+    <select class="form-select" aria-label="Default select example">
+      <option v-for="referee in referees">
+        {{ match.matchId }}
+      </option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="position" class="form-label">Position:</label>
+    <select class="form-select" aria-label="Default select example">
       <option value="1">One</option>
       <option value="2">Two</option>
       <option value="3">Three</option>
     </select>
   </div>
   <div class="mb-3">
-    <label for="yearpublished" class="form-label">Match:</label>
+    <label for="status" class="form-label">Status:</label>
     <select class="form-select" aria-label="Default select example">
       <!-- loop -->
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label for="yearpublished" class="form-label">Position:</label>
-    <select class="form-select" aria-label="Default select example">
-      <!-- loop -->
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label for="yearpublished" class="form-label">Status:</label>
-    <select class="form-select" aria-label="Default select example">
-      <!-- loop -->
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+      <option value="1">Assigned</option>
+      <option value="2">Tentative</option>
+      <option value="3">Unassigned</option>
+      <option value="3">Accepted</option>
     </select>
   </div>
   <button type="submit" class="btn btn-primary"> Submit </button>
