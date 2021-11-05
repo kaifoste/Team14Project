@@ -2,14 +2,7 @@ const refereesApp = {
     data() {
       return {
         referees : [],
-        "referees":{
-            id: {},
-            fname: {},
-            lname: {},
-            age: {},
-            grade: {},
-            rating: {},
-        },
+        refereeForm: {},
       }
     },
     computed: {},
@@ -31,4 +24,4 @@ const refereesApp = {
     }
   }
   
-  Vue.createApp(refereesApp).mount('#refereesList');
+  Vue.createApp(refereesApp).mount('#refApp');
