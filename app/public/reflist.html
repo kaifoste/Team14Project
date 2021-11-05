@@ -69,8 +69,8 @@
           <!-- fix -->
           <tr v-for="referee in referees">
             <td>{{ referee.refereeId }}</td>
-            <td>{{ referee.fname }}</td>
-            <td>{{ referee.lname }}</td>
+            <td>{{ referee.fName }}</td>
+            <td>{{ referee.lName }}</td>
             <td>{{ referee.age }}</td>            
             <td>{{ referee.grade }}</td>
             <td>{{ referee.rating }}</td>
@@ -93,15 +93,15 @@
         <!-- fix -->
         <h3>{{ selectedReferee === null ? "Add " : "Edit " }} Referee</h3>
         <!-- fix form inputs-->
-        <form v-on:submit.prevent="postReferee">
+        <form v-on:submit.prevent="postReferees">
       <div class="mb-3">
         <label for="fname" class="form-label">First Name:</label>
-        <input type="text" v-model="refereeForm.fname"
+        <input type="text" v-model="refereeForm.fName"
          class="form-control" id="fname">
       </div>
       <div class="mb-3">
         <label for="lname" class="form-label">Last Name:</label>
-        <input type="text" v-model="refereeForm.lname"
+        <input type="text" v-model="refereeForm.lName"
          class="form-control" id="lname">
       </div>
       <div class="mb-3">
@@ -120,7 +120,7 @@
          class="form-control" id="rating" min= "1" step="1" max="100">
       </div>
       <button type="submit" class="btn btn-primary">{{ selectedReferee === null ? "Add " : "Edit " }} Referee</button>
-      <button type="button" class="btn btn-outline-secondary" v-if="selectedBook" v-on:click="resetBookForm">Cancel</button>      </form></div>
+      <button type="button" class="btn btn-outline-secondary" v-if="selectedReferee" v-on:click="resetRefereeForm">Cancel</button>      </form></div>
   </main>
 </div>
   
@@ -130,6 +130,6 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-  <script src="js/index.js"></script>
+  <script src="js/reflist.js"></script>
 </body>
 </html>
