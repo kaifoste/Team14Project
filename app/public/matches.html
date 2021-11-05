@@ -48,7 +48,7 @@
 
 <!-- https://getbootstrap.com/docs/5.0/components/alerts/ -->
   <main class="container">
-<div>
+<div id="someApp" class="container">
 
 <h3>Match List</h3>
 <table class="table">
@@ -63,12 +63,12 @@
     </thead>
     <tbody>
       <!-- fix -->
-      <tr v-for="book in books">
-        <td>{{ match.id }}</td>
-        <td>{{ match.date }}</td>
-        <td>{{ match.time }}</td>
+      <tr v-for="match in matches">
+        <td>{{ match.matchId }}</td>
+        <td>{{ match.matchDate }}</td>
+        <td>{{ match.matchTime }}</td>
         <td>{{ match.field }}</td>            
-        <td>{{ match.grade }}</td>
+        <td>{{ match.level }}</td>
       </tr>
     </tbody>
   </table>
