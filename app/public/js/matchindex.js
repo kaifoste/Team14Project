@@ -56,7 +56,7 @@ const SomeApp = {
             });
         },
         postEditMatch(evt) {        
-          this.matchForm.title = this.selectedMatch.title;        
+        //   this.matchForm.field = this.selectedMatch.field;        
           console.log("Updating!", this.matchForm);
   
           fetch('api/match/update.php', {
@@ -70,7 +70,7 @@ const SomeApp = {
             .then( json => {
               console.log("Returned from post:", json);
               // TODO: test a result was returned!
-              this.books = json;
+              this.matches = json;
               
               this.resetMatchForm();
             });
