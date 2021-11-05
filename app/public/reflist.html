@@ -78,7 +78,7 @@
               <!-- fix -->
               <button type="button" 
                 class="btn btn-outline-secondary btn-sm"
-                v-on:click="selectRefereeToEdit(referee)">Edit</button>
+                v-on:click="selectRefereeForEdit(referee)">Edit</button>
               <!-- fix -->
                 <button type="button" 
                 class="btn btn-outline-secondary btn-sm" 
@@ -94,7 +94,12 @@
         <h3>{{ selectedReferee === null ? "Add " : "Edit " }} Referee</h3>
         <!-- fix form inputs-->
         <form v-on:submit.prevent="postReferees">
-      <div class="mb-3">
+          <div class="mb-3">
+            <label for="refereeId" class="form-label">ID:</label>
+            <input type="number" v-model="refereeForm.refereeId"
+             class="form-control" id="refereeId">
+          </div>
+          <div class="mb-3">
         <label for="fname" class="form-label">First Name:</label>
         <input type="text" v-model="refereeForm.fName"
          class="form-control" id="fname">
