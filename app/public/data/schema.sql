@@ -71,4 +71,3 @@ INSERT INTO assignments(assignmentId, refereeId, matchID, position,status) VALUE
   (20004,10003,0001,'Head Referee', 'Unassigned'),
   (20005,10003,0004,'Fourth Official', 'Accepted')
 ; 
-
