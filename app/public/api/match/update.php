@@ -31,24 +31,29 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO matches (matchId, matchDate, matchTime, field, level)
-  VALUES (?, ?, ?, ?, ?)'
+  'UPDATE matches SET
+    matchId = ?,
+    matchDate = ?,
+    matchTime = ?,
+    field = ?,
+    level=?
+  WHERE id = ?'
 );
 
 $stmt->execute([
-  $_POST['matchID'],
+  $_POST['matchId'],
   $_POST['matchDate'],
   $_POST['matchTime'],
   $_POST['field'],
-  $_POST['level']
+  $_POST['level'],
 ]);
 
 // Get auto-generated PK from DB
 // https://www.php.net/manual/en/pdo.lastinsertid.php
- $pk = $db->lastInsertId();  
+// $pk = $db->lastInsertId();  
 
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../match/');
+header('Location: ../match/?matches=' . $_POST['matchId']);
