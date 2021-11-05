@@ -56,7 +56,7 @@ const SomeApp = {
             });
         },
         postEditMatch(evt) {        
-        //   this.matchForm.field = this.selectedMatch.field;        
+        this.matchForm.matchId = this.selectedMatch.matchId;        
           console.log("Updating!", this.matchForm);
   
           fetch('api/match/update.php', {
