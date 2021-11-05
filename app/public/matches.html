@@ -69,23 +69,25 @@
         <td>{{ match.matchDate }}</td>
         <td>{{ match.matchTime }}</td>
         <td>{{ match.field }}</td>            
-        <td>{{ match.level }}</td>
+        <td>{{ match.grade }}</td>
         <td>
           <button type="button" class="btn btn-outline-secondary btn-sm"
-          v-on:click="selectMatchForEdit(matches)">Edit</button>
+          v-on:click="selectMatchForEdit(match)">Edit</button>
         <button type="button" class="btn btn-outline-secondary btn-sm"
-          v-on:click="postDeleteMatch(matches)">Delete</button>
+          v-on:click="postDeleteMatch(match)">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
 
+  <h3>{{ selectedMatch === null ? "Add " : "Edit " }} Match</h3>
   <form v-on:submit.prevent="postMatches">
-		<div class="mb-3">
+  
+		<!-- <div class="mb-3">
 		  <label for="matchId" class="form-label">Match ID</label>
 		  <input type="number" v-model="matchForm.matchId"
 		   class="form-control" id="matchId">
-		</div>
+		</div> -->
 		<div class="mb-3">
 		  <label for="date" class="form-label">Date</label>
 		  <input type="date" v-model="matchForm.matchDate" class="form-control" id="date">
@@ -99,8 +101,8 @@
 		  <input type="number" v-model="matchForm.field" class="form-control" id="field">
 		</div>
 		<div class="mb-3">
-			<label for="level" class="form-label">Level</label>
-			<input type="text" v-model="matchForm.level" class="form-control" id="level">
+			<label for="grade" class="form-label">Grade</label>
+			<input type="text" v-model="matchForm.grade" class="form-control" id="grade">
 		</div>
 		<button type="submit" class="btn btn-primary">{{ selectedMatch === null ? "Add" : "Edit" }} Match</button>
 		<button type="button" class="btn btn-outline-secondary" 

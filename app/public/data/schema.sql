@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS finalprojectdb;
-USE finalprojectdb;
+CREATE DATABASE IF NOT EXISTS finaldb;
+USE finaldb;
 
 DROP TABLE IF EXISTS referees;
 CREATE TABLE referees (
@@ -25,10 +25,10 @@ CREATE TABLE matches (
 	matchDate date NOT NULL,
     matchTime time NOT NULL,
     field int NOT NULL,
-	level varchar(20) NOT NULL
+	  grade varchar(20) NOT NULL
 );
 
-INSERT INTO matches(matchId, matchDate, matchTime, field, level) VALUES
+INSERT INTO matches(matchId, matchDate, matchTime, field, grade) VALUES
   (0001, '2021-08-01', '12:30', 1, 'Recreational'),
   (0002, '2021-08-03', '11:30', 2, 'Youth Competitive'),
   (0003, '2021-08-04', '19:30', 3, 'Recreational'),
@@ -71,4 +71,5 @@ INSERT INTO assignments(assignmentId, refereeId, matchID, position,status) VALUE
   (20004,10003,0001,'Head Referee', 'Unassigned'),
   (20005,10003,0004,'Fourth Official', 'Accepted')
 ; 
+
 
