@@ -102,10 +102,14 @@
 		  <label for="field" class="form-label">Field</label>
 		  <input type="number" v-model="matchForm.field" class="form-control" id="field">
 		</div>
-		<div class="mb-3">
-			<label for="grade" class="form-label">Grade</label>
-			<input type="text" v-model="matchForm.grade" class="form-control" id="grade">
-		</div>
+    <div class="mb-3">
+      <label for="grade" class="form-label">Grade</label>
+      <select class="form-select" v-model="matchForm.grade" class="form-control" id="grade">
+        <option value="Youth Competitive">Youth Competitive</option>
+        <option value="Recreational">Recreational</option>
+        <option value="Unassigned">Adult Competitive</option>
+      </select>
+    </div>
 		<button type="submit" class="btn btn-primary">{{ selectedMatch === null ? "Add" : "Edit" }} Match</button>
 		<button type="button" class="btn btn-outline-secondary" 
 		  v-if="selectedMatch"
