@@ -22,7 +22,7 @@ INSERT INTO referees (refereeId, fName, lName, age, grade, rating) VALUES
 DROP TABLE IF EXISTS matches;
 CREATE TABLE matches (
 	matchId int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	matchDate date NOT NULL,
+	matchDate date NOT NULL DEFAULT(CURRENT_DATE),
     matchTime time NOT NULL,
     field int NOT NULL,
 	  grade varchar(20) NOT NULL
@@ -55,13 +55,12 @@ INSERT INTO users(userId, fName, lName, assignorRole) VALUES
 DROP TABLE IF EXISTS assignments;
 CREATE TABLE assignments (
 	assignmentId int PRIMARY KEY AUTO_INCREMENT,
-    refereeId int NOT NULL,
-	matchId int NOT NULL,
-    position varchar(20) NOT NULL,
-    status varchar(20) NOT NULL,
-
-    FOREIGN KEY (refereeId) REFERENCES referees(refereeId),
-    FOREIGN KEY (matchId) REFERENCES matches(matchId)
+  refereeId int NOT NULL REFERENCES referees(refereeId)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+	matchId int NOT NULL REFERENCES matches(matchId)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  position varchar(20) NOT NULL,
+  status varchar(20) NOT NULL
 );
 
 INSERT INTO assignments(assignmentId, refereeId, matchID, position,status) VALUES
