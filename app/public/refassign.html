@@ -69,12 +69,22 @@
           <td>{{ assignment.matchId }}</td>
           <td>{{ assignment.position }}</td>            
           <td>{{ assignment.status }}</td>
+          <td>
+            <!-- fix -->
+            <button type="button" 
+              class="btn btn-outline-secondary btn-sm"
+              v-on:click="selectAssignmentForEdit(assignment)">Edit</button>
+            <!-- fix -->
+              <button type="button" 
+              class="btn btn-outline-secondary btn-sm" 
+              v-on:click="postDeleteAssignment(assignment)">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table></div>
 
   <div class="col-lg-12 col-md-12 col-sm-12">
-    <h3>Assign a Referee</h3>
+    <h3>{{ selectedAssignment === null ? "Add " : "Edit " }} Assignment</h3>
     <form v-on:submit.prevent="postAssignment">
   <div class="mb-3">
     <label for="refereeId" class="form-label">Referee:</label>
@@ -95,21 +105,23 @@
   <div class="mb-3">
     <label for="position" class="form-label">Position:</label>
     <select class="form-select" v-model="assignmentForm.position" class="form-control" id="position">
-      <option value="1">Head Referee</option>
-      <option value="2">Assistant Referee</option>
-      <option value="3">Fourth Official</option>
+      <option value="Head Referee">Head Referee</option>
+      <option value="Assistant Referee">Assistant Referee</option>
+      <option value="Fourth Official">Fourth Official</option>
     </select>
   </div>
   <div class="mb-3">
     <label for="status" class="form-label">Status:</label>
     <select class="form-select" v-model="assignmentForm.status" class="form-control" id="status">
-      <option value="1">Assigned</option>
-      <option value="2">Tentative</option>
-      <option value="3">Unassigned</option>
-      <option value="3">Accepted</option>
+      <option value="Assigned">Assigned</option>
+      <option value="Tentative">Tentative</option>
+      <option value="Unassigned">Unassigned</option>
+      <option value="Accepted">Accepted</option>
     </select>
   </div>
-  <button type="submit" class="btn btn-primary"> Submit </button>
+  <button type="submit" class="btn btn-primary">{{ selectedAssignment === null ? "Add " : "Edit " }} Assignment</button>
+  <button type="button" class="btn btn-outline-secondary" v-if="selectedAssignment" v-on:click="resetAssignmentForm">Cancel</button>      
+</form></div>
 </form>
 </div>
 </div>
