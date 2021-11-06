@@ -6,7 +6,6 @@ const SomeApp = {
         matches: [],
         assignmentForm:{},
         selectedAssignment: null,
-  
       }
     },
     computed: {},
