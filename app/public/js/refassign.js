@@ -116,7 +116,7 @@ const SomeApp = {
               // TODO: test a result was returned!
               this.assignments = json;
               
-              this.resetAssignmentsForm();
+              this.resetAssignmentForm();
             });
         },
         selectAssignmentForEdit(o) {
