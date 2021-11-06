@@ -7,7 +7,7 @@ const SomeApp = {
     computed: {},
     methods: {
         fetchMatchesData() {
-          fetch('/api/match/')
+          fetch('/api/match/unassignedmatches.php')
           .then( response => response.json() )
           .then( (responseJson) => {
               console.log(responseJson);
