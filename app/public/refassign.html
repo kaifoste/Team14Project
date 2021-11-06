@@ -79,15 +79,15 @@
   <div class="mb-3">
     <label for="refereeId" class="form-label">Referee:</label>
     <select class="form-select" aria-label="Default select example">
-      <option v-for="assignment in assignments">
-        {{ assignment.refereeId }}
+      <option v-for="referee in referees">
+        {{ referee.refereeId }}
       </option>
     </select>
   </div>
   <div class="mb-3">
     <label for="matchId" class="form-label">Match:</label>
     <select class="form-select" aria-label="Default select example">
-      <option v-for="referee in referees">
+      <option v-for="match in matches">
         {{ match.matchId }}
       </option>
     </select>
