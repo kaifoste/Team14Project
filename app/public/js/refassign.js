@@ -2,6 +2,8 @@ const SomeApp = {
     data() {
       return {
         assignments: [],
+        referees: [],
+        matches: [],
         assignmentForm:{},
         selectedAssignment: null,
   
@@ -19,6 +21,28 @@ const SomeApp = {
             .catch( (err) => {
                 console.error(err);
             })
+        },
+        fetchRefereesData() {
+          fetch('/api/referee/')
+          .then( response => response.json() )
+          .then( (responseJson) => {
+              console.log(responseJson);
+              this.referees = responseJson;
+          })
+          .catch( (err) => {
+              console.error(err);
+          })
+        },
+        fetchMatchesData() {
+          fetch('/api/match/')
+          .then( response => response.json() )
+          .then( (responseJson) => {
+              console.log(responseJson);
+              this.matches = responseJson;
+          })
+          .catch( (err) => {
+              console.error(err);
+          })
         },
         selectAssignments(s) {
           if (s == this.selectedAssignment) {
@@ -107,6 +131,8 @@ const SomeApp = {
         },
     created() {
         this.fetchAssignmentsData();
+        this.fetchRefereesData();
+        this.fetchMatchesData();
     }
   
   }
