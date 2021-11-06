@@ -36,16 +36,16 @@ $stmt = $db->prepare(
     refereeId = ?,
     matchId = ?,
     position = ?,
-    status = ?,
+    status = ?
   WHERE assignmentId = ?'
 );
 
 $stmt->execute([
-  $_POST['assignmentId'],
   $_POST['refereeId'],
   $_POST['matchId'],
   $_POST['position'],
   $_POST['status'],
+  $_POST['assignmentId']
 ]);
 
 // Get auto-generated PK from DB
