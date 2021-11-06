@@ -116,9 +116,15 @@
     <div class="mb-3">
       <label for="grade" class="form-label">Grade</label>
       <select class="form-select" v-model="matchForm.grade" class="form-control" id="grade">
-        <option value="Youth Competitive">Youth Competitive</option>
-        <option value="Recreational">Recreational</option>
-        <option value="Unassigned">Adult Competitive</option>
+        <option value="9">9</option>
+        <option value="8">8</option>
+        <option value="7">7</option>
+        <option value="6">6</option>
+        <option value="5">5</option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
       </select>
     </div>
 		<button type="submit" class="btn btn-primary">{{ selectedMatch === null ? "Add" : "Edit" }} Match</button>
