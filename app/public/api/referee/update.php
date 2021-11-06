@@ -31,20 +31,23 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'UPDATE assignments SET
+  'UPDATE referees SET
     refereeId = ?,
-    matchId = ?,
-    position = ?,
-    statis = ?,
-  WHERE assignmentId = ?'
+    fName = ?,
+    lName = ?,
+    age = ?,
+    grade = ?,
+    rating = ?,
+  WHERE refereeId = ?'
 );
 
 $stmt->execute([
-  $_POST['matchId'],
-  $_POST['matchDate'],
-  $_POST['matchTime'],
-  $_POST['field'],
-  $_POST['level'],
+  $_POST['refereeId'],
+  $_POST['fName'],
+  $_POST['lName'],
+  $_POST['age'],
+  $_POST['grade'],
+  $_POST['rating'],
 ]);
 
 // Get auto-generated PK from DB
@@ -55,4 +58,4 @@ $stmt->execute([
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../referee/?referees=' . $_POST['refereeId']);
+header('Location: ../referee/');
