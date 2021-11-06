@@ -78,7 +78,7 @@
     <form v-on:submit.prevent="postAssignment">
   <div class="mb-3">
     <label for="refereeId" class="form-label">Referee:</label>
-    <select class="form-select" aria-label="Default select example">
+    <select class="form-select" v-model="assignmentForm.refereeId" class="form-control" id="refereeId">
       <option v-for="referee in referees">
         {{ referee.refereeId }}
       </option>
@@ -86,7 +86,7 @@
   </div>
   <div class="mb-3">
     <label for="matchId" class="form-label">Match:</label>
-    <select class="form-select" aria-label="Default select example">
+    <select class="form-select" v-model="assignmentForm.matchId" class="form-control" id="matchId">
       <option v-for="match in matches">
         {{ match.matchId }}
       </option>
@@ -94,15 +94,15 @@
   </div>
   <div class="mb-3">
     <label for="position" class="form-label">Position:</label>
-    <select class="form-select" aria-label="Default select example">
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+    <select class="form-select" v-model="assignmentForm.position" class="form-control" id="position">
+      <option value="1">Head Referee</option>
+      <option value="2">Assistant Referee</option>
+      <option value="3">Fourth Official</option>
     </select>
   </div>
   <div class="mb-3">
     <label for="status" class="form-label">Status:</label>
-    <select class="form-select" aria-label="Default select example">
+    <select class="form-select" v-model="assignmentForm.status" class="form-control" id="status">
       <option value="1">Assigned</option>
       <option value="2">Tentative</option>
       <option value="3">Unassigned</option>
