@@ -115,9 +115,12 @@
          class="form-control" id="age">
       </div>
       <div class="mb-3">
-        <label for="grade" class="form-label">Grade:</label>
-        <input type="number" v-model="refereeForm.grade"
-         class="form-control" id="grade">
+        <label for="grade" class="form-label">Grade</label>
+        <select class="form-select" v-model="refereeForm.grade" class="form-control" id="grade">
+          <option value="Youth Competitive">Youth Competitive</option>
+          <option value="Recreational">Recreational</option>
+          <option value="Unassigned">Adult Competitive</option>
+        </select>
       </div>
       <div class="mb-3">
         <label for="rating" class="form-label">Rating:</label>
