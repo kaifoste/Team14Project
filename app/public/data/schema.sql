@@ -65,8 +65,8 @@ CREATE TABLE assignments (
 
 INSERT INTO assignments(assignmentId, refereeId, matchID, position,status) VALUES
   (20001,10001,0001, 'Head Referee', 'Unassigned'),
-  (20002,10002,0001, 'Assistant Referee', 'Tentative'),
-  (20003,10002,0002, 'Assistant Referee', 'Assigned'),
+  (20002,10002,0001, 'Assistant Referee 1', 'Tentative'),
+  (20003,10002,0002, 'Assistant Referee 2', 'Assigned'),
   (20004,10003,0001,'Head Referee', 'Unassigned'),
   (20005,10003,0004,'Fourth Official', 'Accepted')
 ;
