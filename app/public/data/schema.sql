@@ -25,15 +25,15 @@ CREATE TABLE matches (
 	matchDate date NOT NULL ,
     matchTime time NOT NULL ,
     field int NOT NULL ,
-	  grade char(20) NOT NULL
+	  grade int NOT NULL
 );
 
 INSERT INTO matches(matchId, matchDate, matchTime, field, grade) VALUES
-  (0001, '2021-08-01', '12:30:00', 1, 'Recreational'),
-  (0002, '2021-08-03', '11:30:00', 2, 'Youth Competitive'),
-  (0003, '2021-08-04', '19:30:00', 3, 'Recreational'),
-  (0004, '2021-08-05', '07:30:00', 4, 'Adult Competitive'),
-  (0005, '2021-08-06', '09:30:00', 5, 'Recreational')
+  (0001, '2021-08-01', '12:30:00', 1, 8),
+  (0002, '2021-08-03', '11:30:00', 2, 8),
+  (0003, '2021-08-04', '19:30:00', 3, 7),
+  (0004, '2021-08-05', '07:30:00', 4, 4),
+  (0005, '2021-08-06', '09:30:00', 5, 5)
 ;
 
 DROP TABLE IF EXISTS users;
@@ -69,6 +69,4 @@ INSERT INTO assignments(assignmentId, refereeId, matchID, position,status) VALUE
   (20003,10002,0002, 'Assistant Referee', 'Assigned'),
   (20004,10003,0001,'Head Referee', 'Unassigned'),
   (20005,10003,0004,'Fourth Official', 'Accepted')
-; 
-
-
+;
