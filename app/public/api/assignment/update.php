@@ -32,7 +32,7 @@ $db = DbConnection::getConnection();
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
   'UPDATE assignments SET
-    assignmentId = ?,
+    -- assignmentId = ?,
     refereeId = ?,
     matchId = ?,
     position = ?,
