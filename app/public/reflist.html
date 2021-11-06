@@ -61,9 +61,9 @@
   <main class="row">
     <!-- One page includes a table of books. Table MUST have at the following columns (title, author(s), year published, publisher, page count, MSRP) and at four to eight rows of data. -->
     
-    <div class="col-lg-12 col-md-12 col-sm-12"><h3>Referee List</h3></div>
+    <div class="col-lg-12 col-md-12 col-sm-12"><h3>Referee List <button onclick="exportTableToCSV('All Referees.csv')" style="font-size:15px;float: right">Download as CSV File</button>
+    </h3></div>
     <div class="col-lg-12 col-md-12 col-sm-12">
-      <button onclick="exportTableToCSV('All Referees.csv')" style="float: right">Download as CSV File</button>
       <table id="taskTable" class="table table-condensed">
         <thead>
           <tr>
@@ -128,9 +128,15 @@
       <div class="mb-3">
         <label for="grade" class="form-label">Grade</label>
         <select class="form-select" v-model="refereeForm.grade" class="form-control" id="grade">
-          <option value="Youth Competitive">Youth Competitive</option>
-          <option value="Recreational">Recreational</option>
-          <option value="Unassigned">Adult Competitive</option>
+          <option value="9">9</option>
+          <option value="8">8</option>
+          <option value="7">7</option>
+          <option value="6">6</option>
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
         </select>
       </div>
       <div class="mb-3">
