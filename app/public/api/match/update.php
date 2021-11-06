@@ -40,11 +40,11 @@ $stmt = $db->prepare(
 );
 
 $stmt->execute([
-  $_POST['matchId'],
   $_POST['matchDate'],
   $_POST['matchTime'],
   $_POST['grade'],
-  $_POST['field']
+  $_POST['field'],
+  $_POST['matchId']
 ]);
 
 // Get auto-generated PK from DB

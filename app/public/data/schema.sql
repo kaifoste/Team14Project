@@ -22,18 +22,18 @@ INSERT INTO referees (refereeId, fName, lName, age, grade, rating) VALUES
 DROP TABLE IF EXISTS matches;
 CREATE TABLE matches (
 	matchId int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	matchDate date NOT NULL DEFAULT(CURRENT_DATE),
-    matchTime time NOT NULL,
-    field int NOT NULL,
-	  grade varchar(20) NOT NULL
+	matchDate date NOT NULL ,
+    matchTime time NOT NULL ,
+    field int NOT NULL ,
+	  grade char(20) NOT NULL
 );
 
 INSERT INTO matches(matchId, matchDate, matchTime, field, grade) VALUES
-  (0001, '2021-08-01', '12:30', 1, 'Recreational'),
-  (0002, '2021-08-03', '11:30', 2, 'Youth Competitive'),
-  (0003, '2021-08-04', '19:30', 3, 'Recreational'),
-  (0004, '2021-08-05', '7:30', 4, 'Adult Competitive'),
-  (0005, '2021-08-06', '9:30', 5, 'Recreational')
+  (0001, '2021-08-01', '12:30:00', 1, 'Recreational'),
+  (0002, '2021-08-03', '11:30:00', 2, 'Youth Competitive'),
+  (0003, '2021-08-04', '19:30:00', 3, 'Recreational'),
+  (0004, '2021-08-05', '07:30:00', 4, 'Adult Competitive'),
+  (0005, '2021-08-06', '09:30:00', 5, 'Recreational')
 ;
 
 DROP TABLE IF EXISTS users;

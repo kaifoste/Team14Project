@@ -32,7 +32,6 @@ $db = DbConnection::getConnection();
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
   'UPDATE referees SET
-    refereeId = ?,
     fName = ?,
     lName = ?,
     age = ?,
@@ -42,12 +41,12 @@ $stmt = $db->prepare(
 );
 
 $stmt->execute([
-  $_POST['refereeId'],
   $_POST['fName'],
   $_POST['lName'],
   $_POST['age'],
   $_POST['grade'],
   $_POST['rating'],
+  $_POST['refereeId']
 ]);
 
 // Get auto-generated PK from DB
