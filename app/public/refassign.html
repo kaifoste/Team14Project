@@ -88,7 +88,7 @@
     <label for="refereeId" class="form-label">Referee:</label>
     <select class="form-select" v-model="assignmentForm.refereeId" class="form-control" id="refereeId">
       <option v-for="referee in referees">
-        {{ referee.refereeId }}
+        {{ referee.refereeId }} {{ referee.lName }}
       </option>
     </select>
   </div>
@@ -96,7 +96,7 @@
     <label for="matchId" class="form-label">Match:</label>
     <select class="form-select" v-model="assignmentForm.matchId" class="form-control" id="matchId">
       <option v-for="match in matches">
-        {{ match.matchId }}
+        {{ match.matchId }} {{ match.matchDate}} {{ match.matchTime}}
       </option>
     </select>
   </div>
