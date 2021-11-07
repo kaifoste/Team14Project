@@ -89,10 +89,23 @@
       </tbody>
      </table>
     </div>
+
+
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <h3>{{ selectedAssignment === null ? "Add " : "Edit " }} Assignment</h3>
+    <form v-on:submit.prevent="postAssignment">
+  <div class="mb-3">
+    <label for="refereeId" class="form-label">Referee#:</label>
+    <select class="form-select" v-model="assignmentForm.refereeId" class="form-control" id="refereeId">
+      <option v-for="referee in referees">
+        {{ referee.refereeId }}
+      </option>
+    </select>
     <p>
-      
-      <a class="btn  btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-      Reference for Referee Names
+      <a class="btn  btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" 
+      aria-expanded="false" aria-controls="collapseExample" style="background-color: grey;border-color: white;
+      margin-top: 3px;">
+      Click for Referee Names
       </a>
     </p>
     <div class="collapse" id="collapseExample">
@@ -117,16 +130,6 @@
       </div>
     </div>
     </div>
-  <div class="col-lg-12 col-md-12 col-sm-12">
-    <h3>{{ selectedAssignment === null ? "Add " : "Edit " }} Assignment</h3>
-    <form v-on:submit.prevent="postAssignment">
-  <div class="mb-3">
-    <label for="refereeId" class="form-label">Referee#:</label>
-    <select class="form-select" v-model="assignmentForm.refereeId" class="form-control" id="refereeId">
-      <option v-for="referee in referees">
-        {{ referee.refereeId }}
-      </option>
-    </select>
   </div>
   <div class="mb-3">
     <label for="matchId" class="form-label">Match#:</label>
@@ -161,11 +164,10 @@
 
 <br>
 
-
-  </main>
-  <footer class="row">
-        <p>ISRA | Phone: 800-555-1234 | ISRA@gmail.com</p>
-  </footer>
+</main>
+<footer class="row" style="float:bottom">
+  <p>ISRA | Phone: 800-555-1234 | ISRA@gmail.com</p>
+</footer>
 
   <script src="js/export.js"></script>
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
@@ -174,4 +176,5 @@
   <script src="js/reflist.js"></script>
 
 </body>
+
 </html>
