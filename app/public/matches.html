@@ -108,7 +108,7 @@
 		</div>
 		<div class="mb-3">
 		  <label for="field" class="form-label">Field</label>
-		  <input type="number" v-model="matchForm.field" class="form-control" id="field">
+		  <input type="number" v-model="matchForm.field" class="form-control" id="field" min="0" max="100" step="1">
 		</div>
     <div class="mb-3">
       <label for="grade" class="form-label">Grade</label>
@@ -124,7 +124,7 @@
         <option value="1">1</option>
       </select>
     </div>
-		<button type="submit" class="btn btn-primary">{{ selectedMatch === null ? "Add" : "Edit" }} Match</button>
+		<button type="submit" class="btn btn-primary">{{ selectedMatch === null ? "Add" : "Update" }} Match</button>
 		<button type="button" class="btn btn-outline-secondary" 
 		  v-if="selectedMatch"
 		  v-on:click="resetMatchForm">Cancel</button>
