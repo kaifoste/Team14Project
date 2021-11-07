@@ -1,9 +1,6 @@
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: black;
-    margin-left: 20px;
-    margin-right: 20px;
-    overflow: hidden;
 }
 
 header {
@@ -18,7 +15,6 @@ footer {
     text-align: center;
     padding: 10px;
     color: white;
-    clear:both;
   }
 
 h3 {
@@ -44,9 +40,4 @@ h3 {
   color:#999;
 }
 
-/* Create a two-column layout */
-.p {
-  float: right;
-  box-align: right;
-}
 
