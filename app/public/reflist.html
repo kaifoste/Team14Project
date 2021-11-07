@@ -139,7 +139,7 @@
       <div class="mb-3">
         <label for="rating" class="form-label">Rating:</label>
         <input type="number" v-model="refereeForm.rating"
-         class="form-control" id="rating">
+         class="form-control" id="rating" min="0" max="100" step="1">
       </div>
       <button type="submit" class="btn btn-primary">{{ selectedReferee === null ? "Add " : "Edit " }} Referee</button>
       <button type="button" class="btn btn-outline-secondary" v-if="selectedReferee" v-on:click="resetRefereeForm">Cancel</button>      
