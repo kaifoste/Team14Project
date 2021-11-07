@@ -4,7 +4,9 @@ const SomeApp = {
         matches: [],
         matchForm:{},
         selectedMatch: null,
-  
+        referees: [],
+        refereeForm:{},
+        selectedReferee: null,  
       }
     },
     computed: {},
@@ -28,6 +30,25 @@ const SomeApp = {
           this.matches = [];
           this.fetchMatchesData(this.selectedMatch);
       },
+      fetchRefereesData() {
+        fetch('/api/referee/')
+        .then( response => response.json() )
+        .then( (responseJson) => {
+            console.log(responseJson);
+            this.referees = responseJson;
+        })
+        .catch( (err) => {
+            console.error(err);
+        })
+    },
+    selectReferees(s) {
+      if (s == this.selectedReferee) {
+          return;
+      }
+      this.selectedReferee = s;
+      this.referees = [];
+      this.fetchRefereesData(this.selectedReferee);
+  },
       postMatches(evt) {
         if (this.selectedMatch === null) {
             this.postNewMatch(evt);
@@ -82,6 +103,7 @@ const SomeApp = {
   },
     created() {
         this.fetchMatchesData();
+        this.fetchRefereesData();
     }
   
   }
