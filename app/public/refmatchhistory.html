@@ -65,7 +65,7 @@
     <div class="col col-4">
       <div v-for="s in referees" v-on:click="selectReferees(s)"
        :class="['referee', {selected: selectedReferee && s.refereeId == selectedReferee.refereeId}]">
-        <span class="refereeId">{{ s.refereeId }}</span><br>
+        <span class="refereeId">{{ s.refereeId }}: {{s.lName}}</span><br>
       </div>
     </div>
 

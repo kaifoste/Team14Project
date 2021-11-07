@@ -26,12 +26,12 @@ h3 {
 .referee {
   margin: 10px 2px;
   padding: 4px;
-  border: 1px solid gray;
-  background-color: antiquewhite;
+  background-color: rgb(100, 12, 0);
+  color: white;
 }
 
 .selected {
-  background-color: burlywood;
+  background-color: rgb(100, 12, 0);
 }
 
 .refereeId {
