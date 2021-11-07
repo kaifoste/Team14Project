@@ -91,7 +91,33 @@
       </tbody>
      </table>
     </div>
-
+    <p>
+      <a class="btn  btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      Reference for Referee Names
+      </a>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+    <div id="refereeApp" class="content">
+      <table id="taskTable" class="table">
+        <thead>
+          <tr data-toggle="toggle">
+            <th scope="col">Referee #</th>
+            <th scope="col">Ref First Name</th>
+            <th scope="col">Ref Last Name</th>
+          </tr>
+        </thead>
+        <tbody class="hideTr">
+          <tr v-for="referee in referees">
+              <td>{{ referee.refereeId }}</td>
+              <td>{{ referee.fName }}</td>
+              <td>{{ referee.lName }}</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    </div>
   <div class="col-lg-12 col-md-12 col-sm-12">
     <h3>{{ selectedAssignment === null ? "Add " : "Edit " }} Assignment</h3>
     <form v-on:submit.prevent="postAssignment">
@@ -136,26 +162,7 @@
 
 <br>
 
-<h3>Reference for Referee Names</h3>
-<button type="button" class="collapsible">Open Collapsible</button>
-<div id="refereeApp" class="content">
-  <table id="taskTable" class="table">
-    <thead>
-      <tr data-toggle="toggle">
-        <th scope="col">Referee #</th>
-        <th scope="col">Ref First Name</th>
-        <th scope="col">Ref Last Name</th>
-      </tr>
-    </thead>
-    <tbody class="hideTr">
-      <tr v-for="referee in referees">
-          <td>{{ referee.refereeId }}</td>
-          <td>{{ referee.fName }}</td>
-          <td>{{ referee.lName }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+
   </main>
   <footer class="row">
         <p>ISRA | Phone: 800-555-1234 | ISRA@gmail.com</p>
