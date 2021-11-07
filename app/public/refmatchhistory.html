@@ -59,29 +59,42 @@
     
 <div id="matchHistoryApp">
 
-<h3>****FETCH REFEREE NAME**** Match History 
   <button onclick="exportTableToCSV('Match History Report.csv')" style="font-size:15px;float: right">Download as CSV File</button></h3>
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Date</th>
-        <th scope="col">Time</th>
-        <th scope="col">Field</th>
-        <th scope="col">Grade</th>
-      </tr>
-    </thead>
-    <tbody>
+  
+  <div class="row align-items-start">
+    <div class="col col-4">
+      <div v-for="s in referees" v-on:click="selectReferees(s)"
+       :class="['referee', {selected: selectedReferee && s.refereeId == selectedReferee.refereeId}]">
+        <span class="refereeId">{{ s.refereeId }}</span><br>
+      </div>
+    </div>
 
-      <tr v-for="match in matches">
-        <td>{{ match.matchId }}</td>
-        <td>{{ match.matchDate }}</td>
-        <td>{{ match.matchTime }}</td>
-        <td>{{ match.field }}</td>            
-        <td>{{ match.grade }}</td>
-      </tr>
-    </tbody>
-  </table>
+    <div class="col col-8" v-if="selectedReferee">
+      <h1>Games for {{ selectedReferee.fName }} {{ selectedReferee.lName }}</h1>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Match ID</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Field</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+          <tbody>
+              <tr v-for="match in matches">
+                  <td>{{ match.matchId }}</td>
+                  <td>{{ match.matchDate }}</td>
+                  <td>{{ match.matchTime }}</td>
+                  <td>{{ match.field }}</td>
+                  <td>{{ match.grade }}</td>
+              </tr>
+          </tbody>
+      </table>
+
+    </div>
+  </div>
 
   </div>
 
