@@ -57,46 +57,45 @@
 <!-- https://getbootstrap.com/docs/5.0/components/alerts/ -->
   <main class="container">
     
-<div id="matchHistoryApp">
+    <div id="matchHistoryApp" class="container">
+      <div class="row align-items-start">
+        <div class="col col-4">
+          <!-- <p>Profile information for {{ person.name.first }}</p> -->
+          <div v-for="s in referees" v-on:click="selectReferees(s)"
+           :class="['referee', {selected: selectedReferee && s.refereeId == selectedReferee.refereeId}]">
+            <span class="refereeId">{{ s.refereeId }}: {{s.lName}}</span><br>
+          </div>
+        </div>
 
-  <button onclick="exportTableToCSV('Match History Report.csv')" style="font-size:15px;float: right">Download as CSV File</button></h3>
-  
-  <div class="row align-items-start">
-    <div class="col col-4">
-      <div v-for="s in referees" v-on:click="selectReferees(s)"
-       :class="['referee', {selected: selectedReferee && s.refereeId == selectedReferee.refereeId}]">
-        <span class="refereeId">{{ s.refereeId }}: {{s.lName}}</span><br>
-      </div>
-    </div>
+        <div class="col col-8" v-if="selectedReferee">
+          <h1>Matches for {{ selectedReferee.fName }} {{ selectedReferee.lName }}</h1>
 
-    <div class="col col-8" v-if="selectedReferee">
-      <h1>Games for {{ selectedReferee.fName }} {{ selectedReferee.lName }}</h1>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Match ID</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Field</th>
-            <th>Grade</th>
-          </tr>
-        </thead>
-          <tbody>
-              <tr v-for="match in matches">
-                  <td>{{ match.matchId }}</td>
-                  <td>{{ match.matchDate }}</td>
-                  <td>{{ match.matchTime }}</td>
-                  <td>{{ match.field }}</td>
-                  <td>{{ match.grade }}</td>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>matchId</th>
+                <th>Position</th>
+                <th>Status</th>
               </tr>
-          </tbody>
-      </table>
+            </thead>
+              <tbody>
+                  <tr v-for="assignment in assignments">
+                      <td>{{ assignment.matchId }}</td>
+                      <td>{{ assignment.position }}</td>
+                      <td>{{ assignment.status }}</td>
+                  </tr>
+              </tbody>
+          </table>
+          <div class="noOffers" v-if="! assignments.length">
+            <h3>No assignments</h3>
+          </div>
+
+
+        </div>
+
+      </div>
 
     </div>
-  </div>
-
-  </div>
 
   </main>
   <footer class="row">

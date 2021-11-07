@@ -1,34 +1,28 @@
 const SomeApp = {
     data() {
       return {
-        matches: [],
-        matchForm:{},
-        selectedMatch: null,
         referees: [],
-        refereeForm:{},
-        selectedReferee: null,  
+        selectedReferee: null,
+        assignments: [],
+        selectedAssignment: null
       }
     },
     computed: {},
     methods: {
-        fetchMatchesData() {
-            fetch('/api/match/')
-            .then( response => response.json() )
-            .then( (responseJson) => {
-                console.log(responseJson);
-                this.matches = responseJson;
+        fetchAssignmentsData(s) {
+          console.log("Fetching offer data for ", s);
+          fetch('/api/assignment/?referees=' + s.refereeId)
+          .then( response => response.json() )
+          .then( (responseJson) => {
+              console.log(responseJson);
+              this.assignments = responseJson;
             })
             .catch( (err) => {
                 console.error(err);
             })
-        },
-        selectMatches(s) {
-          if (s == this.selectedMatch) {
-              return;
-          }
-          this.selectedMatch = s;
-          this.matches = [];
-          this.fetchMatchesData(this.selectedMatch);
+            .catch( (error) => {
+                console.error(error);
+            });
       },
       fetchRefereesData() {
         fetch('/api/referee/')
@@ -46,15 +40,8 @@ const SomeApp = {
           return;
       }
       this.selectedReferee = s;
-      this.referees = [];
-      this.fetchRefereesData(this.selectedReferee);
-  },
-      postMatches(evt) {
-        if (this.selectedMatch === null) {
-            this.postNewMatch(evt);
-        } else {
-            this.postEditMatch(evt);
-        }
+      this.assignments = [];
+      this.fetchAssignmentsData(this.selectedReferee);
       },
         postNewMatch(evt) {        
           console.log("Posting!", this.matchForm);
@@ -76,33 +63,8 @@ const SomeApp = {
               this.matchForm = {};
             });
         },
-        postEditMatch(evt) {        
-        this.matchForm.matchId = this.selectedMatch.matchId;        
-          console.log("Updating!", this.matchForm);
-  
-          fetch('api/match/update.php', {
-              method:'POST',
-              body: JSON.stringify(this.matchForm),
-              headers: {
-                "Content-Type": "application/json; charset=utf-8"
-              }
-            })
-            .then( response => response.json() )
-            .then( json => {
-              console.log("Returned from post:", json);
-              // TODO: test a result was returned!
-              this.matches = json;
-              
-              this.resetMatchForm();
-            });
-        },
-        selectMatchForEdit(o) {
-          this.selectedMatch = o;
-          this.matchForm = Object.assign({}, this.selectedMatch);
-      },
   },
     created() {
-        this.fetchMatchesData();
         this.fetchRefereesData();
     }
   
