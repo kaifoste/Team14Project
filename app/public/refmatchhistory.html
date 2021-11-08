@@ -58,6 +58,9 @@
   <main class="container">
     
     <div id="matchHistoryApp" class="container">
+
+      
+
       <div class="row align-items-start">
         <div class="col col-4">
           <!-- <p>Profile information for {{ person.name.first }}</p> -->
@@ -67,10 +70,26 @@
           </div>
         </div>
         
+
+        
+        
+
+
         <div class="col col-8" v-if="selectedReferee">
-          <h1>Matches for {{ selectedReferee.fName }} {{ selectedReferee.lName }} <button onclick="exportTableToCSV('All Referees.csv')" style="font-size:15px;float: right">Download as CSV File</button></h1>
+          <h1>Matches for {{ selectedReferee.fName }} {{ selectedReferee.lName }} <button onclick="exportTableToCSV('Match History.csv')" style="font-size:15px;float: right">Download as CSV File</button></h1>
 
           <table class="table">
+            <form>
+              <div class="mb-3">
+                <label for="startDate" class="form-label">Start Date</label>
+                <input type="date" class="form-control" id="startDate">
+              </div>
+              <div class="mb-3">
+                <label for="endDate" class="form-label">End Date</label>
+                <input type="date" class="form-control" id="date">
+              </div>
+              <button type="submit" class="btn btn-outline-secondary" v-on:click="fetchAssignmentsData">Submit</button>
+            </form>
             <thead>
               <tr>
                 <th>matchId</th>
