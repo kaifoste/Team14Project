@@ -5,7 +5,7 @@ require 'class/DbConnection.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$sql = 'SELECT * FROM matches WHERE EXISTS (SELECT * FROM assignments WHERE status="Unassigned")';
+$sql = 'SELECT * FROM matches WHERE matchId in (SELECT matchId FROM assignments WHERE status="Unassigned")';
 $vars = [];
 
 $stmt = $db->prepare($sql);
